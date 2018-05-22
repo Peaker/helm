@@ -3252,7 +3252,8 @@ in cache."
                         (setq file-error t)))))
              (dot  (concat directory "."))
              (dot2 (concat directory ".."))
-             (candidates (append (and (not file-error) (list dot dot2)) ls)))
+             (candidates (append (and (not file-error) nil ;(list dot dot2)
+                                      ) ls)))
         (puthash directory (+ (length ls) 2) helm-ff--directory-files-hash)
         (puthash directory
                  (cl-loop for f in candidates
