@@ -1130,9 +1130,11 @@ Can be used by any source that list buffers."
 (defun helm-skip-boring-buffers (buffers _source)
   "Remove buffers matching `helm-boring-buffer-regexp-list' in BUFFERS.
 Where BUFFERS is a list of buffer names."
-  (helm-skip-entries buffers
-                     helm-boring-buffer-regexp-list
-                     helm-white-buffer-regexp-list))
+  (or
+   (helm-skip-entries buffers
+                      helm-boring-buffer-regexp-list
+                      helm-white-buffer-regexp-list)
+   buffers))
 
 (defun helm-shadow-boring-buffers (buffers _source)
   "Buffers matching `helm-boring-buffer-regexp' will be
