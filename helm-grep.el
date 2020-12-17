@@ -1716,8 +1716,7 @@ version."
 With a prefix arg ARG git-grep the whole repository."
   (interactive "P")
   (require 'helm-files)
-  (helm-grep-git-1 default-directory arg))
-
+  (helm-grep-git-1 default-directory (not arg)))
 
 (provide 'helm-grep)
 
